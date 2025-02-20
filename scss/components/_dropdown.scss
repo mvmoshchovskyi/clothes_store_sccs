@@ -1,13 +1,15 @@
 .dropdown-li {
     position: relative;
-    
+
     &::after {
         font-family: 'Font Awesome 5 Free';
+        //Код \f078 відповідає іконці стрілки вниз
         content: '\f078';
         font-weight: bold;
     }
-    
+
     &:hover .dropdown {
+        // показувати плавно при наведенні
         visibility: visible;
         opacity: 1;
     }
@@ -26,7 +28,7 @@
     visibility: hidden;
     opacity: 0;
     transition: opacity .3s;
-    
+
     &::before {
         content: '';
         display: block;
@@ -37,11 +39,11 @@
         border-bottom: 15px solid darken(color(tertiary), 5%);
         border-left: 15px solid transparent;
     }
-    
+
     &-item {
         margin: .5rem 0;
     }
-    
+
     &-link {
         font-weight: 300;
         font-size: size(xs);

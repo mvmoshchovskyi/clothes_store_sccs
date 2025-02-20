@@ -4,36 +4,39 @@
     position: relative;
     width: 100%;
     height: 80vh;
-    
+
     @include response(xl) {
         height: 70vh;
     }
-    
+
     @include response(lg) {
         height: 60vh;
     }
-    
+
     @include response(md) {
         height: 50vh;
     }
-    
+
+    //один слайд у слайд-шоу
     &-slide {
         position: absolute;
         top: 0;
         left: 0;
         width: inherit;
         height: inherit;
+        //слайди за замовчуванням невидимі.
         visibility: hidden;
         opacity: 0;
+        //кожен слайд має анімацію, яка триває 20 секунд, лінійно змінюється і повторюється безкінечно.
         animation: slideshow 20s linear infinite;
-        
+
         img {
             width: inherit;
             height: inherit;
             object-fit: cover;
         }
     }
-    
+
     &-content {
         background-color: rgba(color(secondary), .9);
         position: absolute;
@@ -42,16 +45,16 @@
         right: 6rem;
         max-width: 40rem;
         padding: 5rem;
-        
+
         @include response(lg) {
             padding: 2rem;
         }
-        
+
         h2 {
             font-size: size(xl) + 1.2rem;
             color: color(primary);
         }
-        
+
         p {
             margin: 1rem 0;
             font-size: size(sm);
@@ -59,14 +62,25 @@
     }
 }
 
+//це список, який вказує, коли кожен слайд повинен з'явитися
+//1-й слайд буде мати затримку 0 секунд.
+//2-й слайд — 4 секунди.
+//3-й слайд — 8 секунд.
+//4-й слайд — 12 секунд.
+//5-й слайд — 16 секунд.
 $animList: 1 0s, 2 4s, 3 8s, 4 12s, 5 16s;
 
+//цикл, що застосовує затримки до кожного слайду, використовуючи властивість animation-delay
+//слайди з'являються через різні інтервали часу, не одночасно.
 @each $item in $animList {
+    //отримує перший елемент пари, тобто номер слайду (1, 2, 3, 4, 5).
     .slideshow-slide:nth-child(#{nth($item, 1)}) {
+        //отримує другий елемент пари, тобто затримку (0s, 4s, 8s, 12s, 16s).
         animation-delay: nth($item, 2);
     }
 }
 
+//визначення ключових кадрів для анімації слайдів, що регулює видимість і прозорість слайдів
 @keyframes slideshow {
     0% {
         visibility: hidden;
