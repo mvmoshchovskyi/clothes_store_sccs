@@ -1,0 +1,35 @@
+.header {
+    //Розтягує елемент від першої до останньої колонки (займає всю ширину сітки)
+    grid-column: 1 / -1;
+    //Розміщує елемент у першому рядку сітки, займаючи один рядок
+    grid-row: 1 / 2;
+    display: grid;
+    //Перша колонка 10rem → 1fr
+    //7 основних колонок min-content → 16rem
+    //Остання колонка 10rem → 1fr
+    grid-template-columns: minmax(10rem, 1fr) repeat(7, minmax(min-content, 16rem)) minmax(10rem, 1fr);
+    grid-template-rows: repeat(3, min-content);
+    grid-gap: 2rem;
+    z-index: 100;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

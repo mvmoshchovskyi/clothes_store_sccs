@@ -1,0 +1,17 @@
+{
+  "name": "sass-project",
+  "version": "1.0.0",
+  "description": "my css project",
+  "main": "index.js",
+  "scripts": {
+    "watch": "node-sass -o css scss/main.scss -w"
+  },
+  "keywords": [
+    "ccs",
+    "sass"
+  ],
+  "author": "mvmoshchovskyi",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}

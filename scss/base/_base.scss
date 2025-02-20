@@ -1,0 +1,68 @@
+* {
+  font-family: 'Josefin Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+//62.5% від базового 16px (за замовчуванням у браузерах) →
+// 10 / 16 = .625 * 100
+//16px * 62.5% = 10px
+//Тепер 1rem = 10px.
+  font-size: 62.5%;
+
+    @include response(md) {
+        font-size: 56.25%;
+    }
+
+    @include response(sm) {
+        font-size: 50%;
+    }
+}
+
+.container {
+    display: grid;
+    //Контейнер має 10 колонок:
+    //Перший і останній стовпці мають мінімальну ширину 6rem, але можуть займати всю доступну ширину (1fr).
+    //Середні 8 колонок мають ширину від min-content (мінімальна можлива ширина контенту) до 16rem (максимальна ширина 16rem).
+    grid-template-columns: minmax(6rem, 1fr) repeat(8, minmax(min-content, 16rem)) minmax(6rem, 1fr);
+    //Кожен рядок має висоту, рівну min-content (займає мінімально необхідне місце для вмісту).
+    grid-template-rows: repeat(4, min-content);
+    //Відстань між рядками
+    grid-row-gap: 1.6rem;
+    background-color: color(tertiary);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
