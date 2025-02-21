@@ -53,31 +53,19 @@
 }
 
 @mixin response($breakpoint) {
-    @if($breakpoint == xl) {
-        @media(max-width: 1200px) {
-            @content;
-        }
-    }
+    $breakpoints: (
+        xl: 1200px,
+        lg: 1000px,
+        md: 760px,
+        sm: 560px
+    );
 
-    @if($breakpoint == lg) {
-        @media(max-width: 1000px) {
-            @content;
-        }
-    }
-
-    @if($breakpoint == md) {
-        @media(max-width: 760px) {
-            @content;
-        }
-    }
-
-    @if($breakpoint == sm) {
-        @media(max-width: 560px) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
             @content;
         }
     }
 }
-
 
 
 

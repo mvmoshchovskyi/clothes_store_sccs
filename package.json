@@ -4,7 +4,7 @@
   "description": "my css project",
   "main": "index.js",
   "scripts": {
-    "watch": "node-sass -o css scss/main.scss -w"
+    "watch": "sass --watch scss/main.scss:css/main.css"
   },
   "keywords": [
     "ccs",
